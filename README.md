@@ -23,13 +23,13 @@ The station inventory can be optionally filtered based on several criteria, such
 If filters are not specified, all stations are returned.
 This function can be used to select stations for analysis and to determine the station ID, which is required for the ecccdownload() function.
 
-Arguments:
-province: Optional. The province of interest.
-name: Optional. The station name (or partial name).
-climateid: Optional. The climate ID of the station.
-stationid: Optional. The specific station ID.
-timeframe: Optional. The desired timeframe (e.g., "hourly", "daily", "monthly").
-year: Optional. Filter stations based on the availability of data for a specific year.
+Arguments:  
+- `province`: Optional. The province of interest.
+- `name`: Optional. The station name (or partial name).
+- `climateid`: Optional. The climate ID of the station.
+- `stationid`: Optional. The specific station ID.
+- `timeframe`: Optional. The desired timeframe (e.g., "hourly", "daily", "monthly").
+- `year`: Optional. Filter stations based on the availability of data for a specific year.
 
 Example usage:
 
@@ -45,11 +45,11 @@ somestations <- getstations(province = "Ontario", timeframe = "daily", year = "2
 This function allows you to download historical weather data from Environment Canada based on a station ID and date range you specify.
 The function currently supports downloading hourly and daily data; monthly data handling is not yet implemented.
 
-Arguments:
-stationID: The station ID for which data is being requested.
-start_date: The start date of the data you wish to download (format: "YYYY-MM-DD").
-end_date: The end date of the data you wish to download (format: "YYYY-MM-DD").
-timeframe: The desired time frame for the data (1 = hourly, 2 = daily. 3 = monthly not yet available).
+Arguments:  
+- `stationID`: The station ID for which data is being requested.
+- `start_date`: The start date of the data you wish to download (format: "YYYY-MM-DD").
+- `end_date`: The end date of the data you wish to download (format: "YYYY-MM-DD").
+- `timeframe`: The desired time frame for the data (1 = hourly, 2 = daily, 3 = monthly not yet available).
 
 Example Usage:
 ```r
