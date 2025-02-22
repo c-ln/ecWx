@@ -41,7 +41,7 @@ allstations <- getstations()
 somestations <- getstations(province = "Ontario", timeframe = "daily", year = "2020) 
 ```
 
-###ecccdownload()
+### ecccdownload()
 This function allows you to download historical weather data from Environment Canada based on a station ID and date range you specify.
 The function currently supports downloading hourly and daily data; monthly data handling is not yet implemented.
 
