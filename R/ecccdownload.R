@@ -9,7 +9,6 @@
 #'
 #' @return A data frame containing the filtered climate data for the specified date range and timeframe.
 #' @export
-
 ecccdownload <- function(stationid, startdate, enddate, timeframe) {
 
   # Extract start and end year from dates
@@ -83,12 +82,10 @@ ecccdownload <- function(stationid, startdate, enddate, timeframe) {
     return(df2)
 
   } else if (timeframe == 3) {
-
     myurl <- paste(
       "http://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=",
       stationid,
-      "&Year=", year,
-      "&Month=1&Day=1&timeframe=", timeframe,
+      "&Year=1900&Month=1&Day=1&timeframe=", timeframe,
       sep = ""
     )
     df1 <- read.csv(myurl)
