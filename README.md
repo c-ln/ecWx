@@ -1,11 +1,11 @@
 # ecWx: Download Historical Weather Data from Environment Canada
 
 **ecWx** is an R package that allows users to download historical climate data from Environment Canada.
-It provides functions for accessing station metadata and downloading climate data for specified timeframes.
+It provides functions for accessing station metadata and downloading hourly, daily, and monthly climate data for specified date ranges.
 
 ## Installation
 
-You can install the `ecWx` package directly from GitHub using `devtools`:
+You can install the `ecWx` package in R from GitHub using `devtools`:
 
 ```r
 # Install devtools if you haven't already
@@ -19,9 +19,9 @@ devtools::install_github("c-ln/ecWx")
 
 ### getstations()
 This function allows you to download station inventory data from Environment Canada's climate station database.
-The station inventory can be optionally filtered based on several criteria, such as province, station name, or climate ID.
+The station inventory can be optionally filtered by province, station name, or climate ID.
 If filters are not specified, all stations are returned.
-This function can be used to select stations for analysis and to determine the station ID, which is required for the ecccdownload() function.
+This function can be used to select stations for analysis and to determine a station ID, which is required for the ecccdownload() function.
 
 Arguments:  
 - `province`: Optional. The province of interest.
@@ -38,21 +38,21 @@ Example usage:
 allstations <- getstations()
 
 # get stations in Ontario with daily data available for 2020
-somestations <- getstations(province = "Ontario", timeframe = "daily", year = "2020) 
+Ontariostations <- getstations(province = "Ontario", timeframe = "daily", year = "2020) 
 ```
 
 ### ecccdownload()
 This function allows you to download historical weather data from Environment Canada based on a station ID and date range you specify.
-The function currently supports downloading hourly and daily data; monthly data handling is not yet implemented.
+The function supports hourly, daily, and monthly data handling.
 
 Arguments:  
-- `stationID`: The station ID for which data is being requested.
-- `start_date`: The start date of the data you wish to download (format: "YYYY-MM-DD").
-- `end_date`: The end date of the data you wish to download (format: "YYYY-MM-DD").
-- `timeframe`: The desired time frame for the data (1 = hourly, 2 = daily, 3 = monthly not yet available).
+- `stationid`: The station ID for data being requested (format: 4-digit numeric format).
+- `startdate`: The start date of the data you wish to download (format: "YYYY-MM-DD").
+- `enddate`: The end date of the data you wish to download (format: "YYYY-MM-DD").
+- `timeframe`: The desired time frame for the data (format: 1 = hourly, 2 = daily, 3 = monthly).
 
 Example Usage:
 ```r
 # get daily data for ROSEVILLE climate station for 2015
-data <- ecccdownload(stationID = "4816", start_date = "2015-01-01", end_date = "2015-12-31", timeframe = 2)
+data <- ecccdownload(stationid = "4816", startdate = "2015-01-01", enddate = "2015-12-31", timeframe = 2)
 ```

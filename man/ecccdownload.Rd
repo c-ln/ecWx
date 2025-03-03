@@ -4,14 +4,14 @@
 \alias{ecccdownload}
 \title{Download Environment Canada Historical Climate Data}
 \usage{
-ecccdownload(stationID, start_date, end_date, timeframe)
+ecccdownload(stationid, startdate, enddate, timeframe)
 }
 \arguments{
-\item{stationID}{A numeric or character value representing the station ID.}
+\item{stationid}{A numeric or character value representing the station ID.}
 
-\item{start_date}{A string representing the start date in "YYYY-MM-DD" format.}
+\item{startdate}{A string representing the start date in "YYYY-MM-DD" format.}
 
-\item{end_date}{A string representing the end date in "YYYY-MM-DD" format.}
+\item{enddate}{A string representing the end date in "YYYY-MM-DD" format.}
 
 \item{timeframe}{A numeric value (1 = daily, 2 = hourly, 3 = monthly).}
 }
